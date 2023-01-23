@@ -21,6 +21,13 @@ namespace Calculator
 
         public double divide(int a, int b)
         {
+            // **** ****
+            if (b == 0)
+            {
+                throw new DivideByZeroException("divide <<< b: {0}", b);
+            }
+
+            // **** divide integers ****
             return a / b;
         }
     }
