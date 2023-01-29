@@ -4,31 +4,38 @@ namespace Calculator
 {
 	public class Calculator : ICalculator
 	{
-		public int add(int a, int b)
+		public double add(double a, double b)
         {
             return a + b;
         }
 
-        public int subtract(int a, int b)
+        public double subtract(double a, double b)
         {
             return a - b;
         }
 
-        public int multiply(int a, int b)
+        public double multiply(double a, double b)
         {
             return a * b;
         }
 
-        public double divide(int a, int b)
+        public double divide(double a, double b)
         {
-            // **** ****
-            if (b == 0)
+
+            double result = 0.0;
+
+            // **** divide integers (may throw exception) ****
+            try
             {
-                throw new DivideByZeroException("divide <<< b: {0}", b);
+                 result = a / b;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Division of {0} by zero.", a);
             }
 
-            // **** divide integers ****
-            return a / b;
+            // **** ****
+            return result;
         }
     }
 }
